@@ -1,0 +1,13 @@
+file,method,threads,run,seconds,integrity
+subset_R1,gzip,1,1,0.376809,PASS
+subset_R1,gzip,1,2,0.454384,PASS
+subset_R1,gzip,1,3,0.432172,PASS
+subset_R1,pigz,2,1,0.271986,PASS
+subset_R1,pigz,2,2,0.240279,PASS
+subset_R1,pigz,2,3,0.250021,PASS
+subset_R2,gzip,1,1,0.300098,PASS
+subset_R2,gzip,1,2,0.296146,PASS
+subset_R2,gzip,1,3,0.399354,PASS
+subset_R2,pigz,2,1,0.246616,PASS
+subset_R2,pigz,2,2,0.260319,PASS
+subset_R2,pigz,2,3,0.296692,PASS

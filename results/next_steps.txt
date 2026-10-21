@@ -1,0 +1,32 @@
+WGS Optimization Project — Next Steps
+
+Environment:
+- WSL2 Ubuntu
+- 4 CPU threads
+- Approximately 3.7 GiB memory visible to WSL
+- BWA 0.7.17
+- Samtools 1.13
+- SeqKit 2.1.0
+
+Pilot dataset:
+- HG002 paired-end FASTQ subset
+- 100,000 reads per mate
+- 151 bp per read
+- FASTQ gzip integrity checks passed
+
+Completed:
+- gzip versus pigz compression benchmark
+- gzip versus pigz decompression benchmark
+- FastQC reports for both files
+
+Pending:
+1. Verify exact source dataset metadata and reference build.
+2. Select a compatible human reference genome.
+3. Assess indexing resource requirements before downloading.
+4. Benchmark BWA alignment with controlled thread settings.
+5. Record runtime, memory, mapping statistics, and output integrity.
+6. Document limitations and publish reproducible scripts/results.
+
+Important:
+The current pilot subset is useful for testing pipeline mechanics.
+Do not interpret mapping rates as whole-genome results.

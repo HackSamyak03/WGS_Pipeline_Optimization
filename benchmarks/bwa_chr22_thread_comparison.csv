@@ -1,0 +1,7 @@
+threads,run,runtime_seconds,peak_ram_kb,exit_status,bam_integrity
+1,1,156.26,286292,0,PASS
+1,2,158.00,286904,0,PASS
+2,1,93.85,429452,0,PASS
+2,2,95.36,430016,0,PASS
+1,average,157.13,286598,0,PASS
+2,average,94.605,429734,0,PASS

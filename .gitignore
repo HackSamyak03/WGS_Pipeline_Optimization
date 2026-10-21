@@ -1,0 +1,39 @@
+# Sequencing data
+data/*.fastq
+data/*.fastq.gz
+data/**/*.fastq
+data/**/*.fastq.gz
+
+# Reference genomes and indexes
+data/reference/*.fa
+data/reference/*.fasta
+data/reference/*.fna
+data/reference/*.fa.gz
+data/reference/*.fasta.gz
+data/reference/*.fna.gz
+data/reference/*.amb
+data/reference/*.ann
+data/reference/*.bwt
+data/reference/*.pac
+data/reference/*.sa
+
+# Alignment outputs
+results/alignment/*.bam
+results/alignment/*.bai
+results/alignment/*.sam
+results/alignment/*.cram
+results/alignment/*.crai
+
+# Temporary benchmark files
+benchmarks/*.gz
+benchmarks/*.fastq
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs and temporary files
+logs/
+*.tmp
