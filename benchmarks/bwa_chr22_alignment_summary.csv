@@ -1,0 +1,3 @@
+threads,total_reads,mapped_reads,mapped_percent,properly_paired_reads,supplementary_alignments,mq0_reads,bases_mapped
+1,200000,69564,34.782,35756,8170,23042,10504164
+2,200000,69562,34.781,35762,8169,23062,10503862

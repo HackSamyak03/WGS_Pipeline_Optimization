@@ -78,3 +78,35 @@ Required tools include BWA, SAMtools, FastQC, gzip, pigz, and SeqKit.
 - Measure CPU, memory, and I/O bottlenecks.
 - Test larger datasets within available hardware limits.
 - Document exact tool versions and reference provenance.
+
+## Alignment Validation
+
+Both the one-thread and two-thread BAM files passed `samtools quickcheck`.
+The BAM headers confirmed coordinate sorting and a reference sequence
+named `22` with length 50,818,468 bp.
+
+The following metrics were obtained using `samtools stats`:
+
+| Metric | 1 BWA thread | 2 BWA threads |
+|---|---:|---:|
+| Total reads | 200,000 | 200,000 |
+| Mapped reads | 69,564 | 69,562 |
+| Mapped reads (%) | 34.782% | 34.781% |
+| Properly paired reads | 35,756 | 35,762 |
+| Supplementary alignments | 8,170 | 8,169 |
+| Mapping quality 0 reads | 23,042 | 23,062 |
+| Bases mapped | 10,504,164 | 10,503,862 |
+
+The alignment statistics are very similar across thread configurations.
+Small differences in alignment counts are present, so the outputs should
+not be described as identical.
+
+**Interpretation caution:** The reads were aligned against chromosome 22
+only. Reads originating from other chromosomes are generally not expected
+to align to this reference, and chromosome-only mapping rates are not
+comparable to whole-genome mapping rates. The original reference build
+associated with the source FASTQ files also remains unverified.
+
+Detailed `samtools stats` reports are stored in `results/alignment_stats/`,
+and the consolidated metrics are stored in
+`benchmarks/bwa_chr22_alignment_summary.csv`.
