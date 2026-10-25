@@ -156,3 +156,33 @@ established.
 These results apply only to the 100,000-pair pilot subset aligned against
 the chromosome 22 reference; they should not be interpreted as whole-genome
 performance or accuracy results.
+
+## Improved CPU Profiling (Experiment 7)
+
+A third BWA 2-thread and SAMtools sort `-@ 2` run used
+`pidstat -u -p ALL 1` to sample both processes throughout the pipeline.
+
+| Metric | Result |
+|---|---:|
+| Wall-clock runtime | 78.59 seconds |
+| Peak reported RAM | 429,896 KB (~420 MiB) |
+| BWA average sampled CPU | 186.60% |
+| BWA peak sampled CPU | 203.00% |
+| SAMtools average sampled CPU | 0.37% |
+| SAMtools peak sampled CPU | 21.00% |
+| Samples per process | 84 |
+| BAM integrity check | PASS |
+
+BWA's average sampled CPU usage was consistent with approximately
+1.87 logical CPU cores being used. SAMtools had low sampled CPU usage
+during this run, potentially because it spent substantial time waiting
+for upstream output. These CPU samples alone do not establish a pipeline
+bottleneck.
+
+The 78.59-second runtime was faster than the two previous profiling
+runs (85.21 and 87.96 seconds). Because runtime varies between runs and
+only one run used this improved monitoring setup, this result is
+preliminary rather than proof of a performance improvement.
+
+All results are limited to the 100,000-pair pilot subset aligned to a
+chromosome 22 reference, not whole-genome performance.
