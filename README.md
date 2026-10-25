@@ -137,3 +137,22 @@ Resource-profile artifacts:
 - `benchmarks/resource_profile_chr22.csv`
 - `results/resource_profile/chr22_cpu_usage.txt`
 - `results/resource_profile/chr22_cpu_usage_repeat2.txt`
+
+## Alignment Reproducibility
+
+Sorted SAM alignment records were compared using SHA-256 hashes after
+sorting the SAM text records. Four runs using BWA 2 threads and SAMtools
+sort with `-@ 2` produced the same hash:
+
+`ec30e0fa140549b22b0b1c71d0aecef735a4140425ad6938d527879a029140bd`
+
+However, the BWA 1-thread and 2-thread configurations produced different
+hashes. Their primary record counts were both 200,000, but mapped,
+unmapped, supplementary, and properly paired counts differed slightly.
+This indicates that the resulting alignments are not identical across
+these thread configurations. The cause of the differences has not been
+established.
+
+These results apply only to the 100,000-pair pilot subset aligned against
+the chromosome 22 reference; they should not be interpreted as whole-genome
+performance or accuracy results.

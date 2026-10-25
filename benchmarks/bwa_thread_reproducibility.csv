@@ -1,0 +1,8 @@
+metric,bwa_1thread,bwa_2thread
+total_records,208170,208169
+primary_records,200000,200000
+primary_mapped_records,69564,69562
+unmapped_records,130436,130438
+supplementary_records,8170,8169
+properly_paired_records,35756,35762
+sorted_alignment_hash,c75764ffc0876c8f80e457f0230c2645e6c583e69054cff17c716c917911430f,ec30e0fa140549b22b0b1c71d0aecef735a4140425ad6938d527879a029140bd
