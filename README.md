@@ -110,3 +110,30 @@ associated with the source FASTQ files also remains unverified.
 Detailed `samtools stats` reports are stored in `results/alignment_stats/`,
 and the consolidated metrics are stored in
 `benchmarks/bwa_chr22_alignment_summary.csv`.
+
+## Resource Profiling
+
+The best observed configuration in the current pilot benchmark was BWA with
+2 threads piped to `samtools sort -@ 2`. It was profiled twice using
+`/usr/bin/time -v` and `pidstat -u 1`.
+
+| Run | Runtime (s) | Peak RAM (KB) | BWA average sampled CPU | BAM integrity |
+|---|---:|---:|---:|---|
+| 1 | 85.21 | 429784 | 186.7% | PASS |
+| 2 | 87.96 | 430216 | 186.0% | PASS |
+| Mean | 86.585 | 430000 | 186.35%* | PASS |
+
+*The BWA CPU figure is the mean of sampled process-level CPU percentages.
+Values above 100% indicate use of more than one logical CPU. SAMtools was
+captured in only two samples per run, so its average CPU utilization is not
+representative and is not interpreted here.
+
+The runtime and peak memory were similar across the two runs. These results
+describe a 100,000-read-pair pilot aligned against a chromosome-22-only
+GRCh38 candidate reference. They should not be treated as whole-genome
+performance estimates.
+
+Resource-profile artifacts:
+- `benchmarks/resource_profile_chr22.csv`
+- `results/resource_profile/chr22_cpu_usage.txt`
+- `results/resource_profile/chr22_cpu_usage_repeat2.txt`

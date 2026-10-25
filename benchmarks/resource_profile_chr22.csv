@@ -1,0 +1,4 @@
+run,configuration,runtime_seconds,peak_ram_kb,bwa_avg_cpu_percent,bwa_peak_cpu_percent,bwa_samples,samtools_samples,bam_integrity
+1,BWA2_sort2,85.21,429784,186.7,218.0,89,2,PASS
+2,BWA2_sort2,87.96,430216,186.0,203.0,92,2,PASS
+average,BWA2_sort2,86.585,430000,186.35,,181,4,PASS
