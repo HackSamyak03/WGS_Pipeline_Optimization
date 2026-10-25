@@ -1,0 +1,2 @@
+run,configuration,runtime_seconds,peak_ram_kb,bwa_avg_cpu_percent,bwa_peak_cpu_percent,bwa_samples,samtools_avg_cpu_percent,samtools_peak_cpu_percent,samtools_samples,bam_integrity
+3,BWA2_sort2_pidstat_all,78.59,429896,186.60,203.00,84,0.37,21.00,84,PASS
