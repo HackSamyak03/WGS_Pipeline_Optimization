@@ -1,7 +1,10 @@
-threads,run,runtime_seconds,peak_ram_kb,exit_status,bam_integrity
-1,1,156.26,286292,0,PASS
-1,2,158.00,286904,0,PASS
-2,1,93.85,429452,0,PASS
-2,2,95.36,430016,0,PASS
-1,average,157.13,286598,0,PASS
-2,average,94.605,429734,0,PASS
+threads,sort_threads,run,runtime_seconds,peak_ram_kb,exit_status,bam_integrity
+1,1,1,156.26,286292,0,PASS
+1,1,2,158.00,286904,0,PASS
+2,1,1,93.85,429452,0,PASS
+2,1,2,95.36,430016,0,PASS
+1,1,average,157.13,286598,0,PASS
+2,1,average,94.605,429734,0,PASS
+1,2,1,140.69,286504,0,PASS
+1,2,2,151.59,286440,0,PASS
+1,2,average,146.14,286472,0,PASS
