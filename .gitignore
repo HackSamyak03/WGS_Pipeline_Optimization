@@ -37,3 +37,15 @@ venv/
 # Logs and temporary files
 logs/
 *.tmp
+
+# Variant-calling outputs
+results/variants/*.vcf
+results/variants/*.vcf.gz
+results/variants/*.bcf
+results/variants/*.csi
+results/variants/*.tbi
+
+# Reference and alignment auxiliary files
+data/**/*.fai
+data/**/*.dict
+results/alignment/*.bai
