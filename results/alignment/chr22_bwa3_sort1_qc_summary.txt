@@ -1,0 +1,32 @@
+Alignment QC Summary
+====================
+BAM: results/alignment/chr22_pipeline_bwa3_sort1.bam
+Aligner: BWA-MEM 0.7.17
+Reference: candidate GRCh38 chromosome 22
+Input: 100,000 paired-end read pairs, 151 bp per mate
+
+BAM integrity:
+- samtools quickcheck: PASS
+- BAM index generated: PASS
+- Coordinate-sorted BAM header: confirmed
+
+Alignment statistics:
+- Total records: 208,170
+- Primary records: 200,000
+- Primary mapped records: 69,564 (34.78%)
+- Properly paired records: 35,764 (17.88% of primary records)
+- Supplementary records: 8,170
+
+Insert-size investigation:
+- samtools stats mean insert size: 2,996.7 bp
+- Properly paired records with nonzero TLEN: 35,764
+- Mean absolute TLEN among those records: 270.26 bp
+- Records with absolute TLEN > 1,000 bp among properly paired records: 284
+- The large overall insert-size statistic is not interpreted as the
+  biological insert size because this pilot was aligned to chromosome 22 only.
+
+Limitations:
+- This is a 100,000-pair pilot, not a whole-genome analysis.
+- The exact reference build used to generate the original reads has not
+  been independently confirmed.
+- Mapping rates and insert-size statistics must not be generalized to WGS.
