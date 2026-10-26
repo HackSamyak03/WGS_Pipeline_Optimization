@@ -1,0 +1,53 @@
+Pilot Variant QC Notes
+======================
+
+Input
+-----
+Raw VCF: results/variants/chr22_pilot_raw.vcf
+Filtered VCF: results/variants/chr22_pilot_filtered.vcf
+Filter: INFO/DP >= 5 and QUAL >= 20
+
+Integrity
+---------
+Both VCF files parsed successfully with BCFtools 1.13.
+Raw candidate records: 33,844
+Filtered candidate records: 2,412
+
+Filtered candidate types
+------------------------
+SNPs: 2,409
+Indels: 3
+Multiallelic sites: 41
+
+Genotype distribution
+---------------------
+0/1: 1,200
+1/1: 1,171
+1/2: 41
+
+DP4 diagnostic
+--------------
+Records with valid DP4: 2,412
+Mean reference-support bases: 3.77
+Mean alternate-support bases: 8.57
+No reference-support bases in DP4: 938
+No alternate-support bases in DP4: 0
+
+Genotype/read-support comparison
+--------------------------------
+Mean alternate fraction:
+0/1: 0.553
+1/1: 0.959
+1/2: 0.942
+
+Heterozygous calls with alternate fraction outside 0.2-0.8: 100
+Homozygous-alternate calls with fraction below 0.8: 80
+
+Limitations
+-----------
+- DP4 is quality-filtered base support, not a complete genotype validation.
+- These are candidate calls, not validated true variants.
+- Filtering thresholds are exploratory and not clinically validated.
+- The input is a 100,000-pair pilot subset aligned only to chromosome 22.
+- The exact reference build used to generate the original reads remains unconfirmed.
+- No truth-set comparison or variant accuracy assessment has been performed.
