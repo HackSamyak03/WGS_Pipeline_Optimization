@@ -1,0 +1,51 @@
+Variant Format Benchmark — Results
+==================================
+
+Date: 2026-11-01
+Input: 100,000 paired-end read pairs
+Reference: Candidate GRCh38 chromosome 22
+BCFtools: 1.13
+SAMtools: 1.13
+
+Experiment:
+Five output configurations, three repetitions each.
+Measured operation: bcftools mpileup + bcftools call.
+Filtering was not included in this experiment.
+
+Mean runtime:
+A. Uncompressed VCF:             8.057 seconds
+B. Compressed VCF, default:      7.500 seconds
+C. Compressed VCF, 2 threads:    7.497 seconds
+D. Compressed BCF, default:      7.700 seconds
+E. Compressed BCF, 2 threads:    7.763 seconds
+
+Output sizes:
+A. Uncompressed VCF:             3,930,791 bytes
+B. Compressed VCF, default:        428,843 bytes
+C. Compressed VCF, 2 threads:      428,822 bytes
+D. Compressed BCF, default:        456,714 bytes
+E. Compressed BCF, 2 threads:      456,676 bytes
+
+Validation:
+- All 15 runs completed successfully.
+- All runs produced 33,844 candidate records.
+- All record-level SHA-256 hashes matched the baseline.
+- All output files passed BCFtools parsing validation.
+- Peak memory remained approximately 87.4-87.6 MB.
+
+Interpretation:
+- Compressed VCF reduced output size by approximately 89%.
+- Compressed VCF was approximately 7% faster than uncompressed VCF
+  in this pilot experiment.
+- Two-thread compression did not demonstrate a meaningful
+  runtime improvement over default threading.
+- Compressed VCF with default threading is the provisional
+  recommended configuration.
+
+Limitations:
+- Only three repetitions per configuration.
+- Configurations were tested sequentially, not in randomized order.
+- Small runtime differences may reflect system variation.
+- Results apply only to this pilot BAM and chromosome 22.
+- Candidate variants are not truth-set validated.
+- These results do not establish whole-genome performance.
