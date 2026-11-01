@@ -52,3 +52,7 @@ results/alignment/*.bai
 
 # Variant-calling benchmark run outputs
 benchmarks/variant_calling/run_*/
+
+# Temporary end-to-end benchmark outputs
+benchmarks/end_to_end/run_*/
+benchmarks/end_to_end/fixed_batch_test/

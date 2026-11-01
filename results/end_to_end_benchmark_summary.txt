@@ -1,0 +1,55 @@
+END-TO-END WGS PIPELINE PERFORMANCE BENCHMARK
+
+Dataset:
+- 100,000 paired-end read pairs
+- 151 bp per read
+- Alignment restricted to GRCh38 chromosome 22
+- Candidate reference: GRCh38
+
+Pipeline:
+BWA MEM -> SAMtools sort -> BCFtools mpileup -> BCFtools call
+
+Fixed parameters:
+- BWA batch size: -K 10000000
+- SAMtools sort threads: 1
+- Baseline BWA threads: 1
+- Optimized BWA threads: 3
+- Two repetitions per configuration
+
+Results:
+Baseline:
+- Runtime: 160.90 s, 172.38 s
+- Mean runtime: 166.64 s
+- Mean peak RSS: 286582 KB
+
+Optimized:
+- Runtime: 85.95 s, 79.35 s
+- Mean runtime: 82.65 s
+- Mean peak RSS: 287000 KB
+
+Performance:
+- Speedup: approximately 2.02x
+- Runtime reduction: approximately 50.4%
+- Peak memory remained approximately 287 MB.
+
+Output consistency:
+- All four runs produced 33880 variant records.
+- Queried variant signatures (CHROM, POS, REF, ALT, GT)
+  had the same SHA-256 hash across all runs.
+- BAM integrity and VCF parsing checks passed.
+
+Limitations:
+- Pilot dataset only; not a whole-genome benchmark.
+- Alignment restricted to chromosome 22.
+- GRCh38 is a candidate reference; original source build
+  has not been independently confirmed.
+- No truth-set comparison was performed.
+- Identical queried variant signatures do not establish
+  byte-for-byte identity of all VCF annotations.
+
+Conclusion:
+With a fixed BWA batch size of 10 million input bases,
+the 3-thread configuration reduced measured end-to-end
+runtime by approximately 50.4% compared with 1 thread,
+with similar peak memory and identical queried variant
+signatures in this pilot experiment.
