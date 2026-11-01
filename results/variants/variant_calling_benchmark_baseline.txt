@@ -1,0 +1,32 @@
+Variant Calling Benchmark — Baseline
+====================================
+
+Date: 2026-11-01
+Input: 100,000 paired-end read pairs
+Reference: Candidate GRCh38 chromosome 22
+BCFtools: 1.13
+SAMtools: 1.13
+
+Raw candidate records: 33,844
+Filtered candidate records: 2,412
+Filter: INFO/DP >= 5 && QUAL >= 20
+
+Performance:
+Wall-clock time: 10.75 seconds
+User CPU time: 9.77 seconds
+System CPU time: 3.92 seconds
+CPU utilization: 127%
+Peak resident memory: 87,488 KB (~85.4 MiB)
+Exit status: 0
+
+Validation:
+Both VCF files parsed successfully.
+Candidate record counts match previous results.
+Input BAM and reference SHA-256 checksums recorded.
+Output integrity: PASS
+
+Limitations:
+- This is one benchmark run, not a statistical average.
+- Runtime includes both variant calling and filtering.
+- Results apply only to this pilot BAM and chromosome 22.
+- Candidate variants are not truth-set validated.

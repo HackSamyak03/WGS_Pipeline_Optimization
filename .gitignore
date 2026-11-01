@@ -49,3 +49,6 @@ results/variants/*.tbi
 data/**/*.fai
 data/**/*.dict
 results/alignment/*.bai
+
+# Variant-calling benchmark run outputs
+benchmarks/variant_calling/run_*/
